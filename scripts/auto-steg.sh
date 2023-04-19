@@ -63,7 +63,7 @@ echo -e "$INFO\n\n"
 echo "Checking dependencies..."
 
 # Check if Wget is installed
-if ! dpkg -s wget &> /dev/null; then
+if ! which wget >/dev/null 2>&1; then
   echo "Wget is not installed. Downloading and installing..."
   sudo apt install wget -y
 else

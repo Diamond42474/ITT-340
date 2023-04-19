@@ -35,6 +35,10 @@ Next, run this script in the directory that contains the images.
 
 A auto_stego_extractor_output will be generated. Any extracted data will go here!
 "
+# Colors
+RED='\033[0;31m'
+NC='\033[0m' # No Color
+
 # Directory containing the image files
 DIRECTORY=`pwd` 
 OUTPUT_FOLDER="$DIRECTORY/auto_stego_extractor_output/"
@@ -48,7 +52,7 @@ version="0.8.6"
 # Start Program
 # ==================================
 
-echo -e "$BANNER"
+echo -e "${RED}$BANNER${NC}"
 echo -e "By: Diamond42474\n"
 echo -e "$INFO\n\n"
 

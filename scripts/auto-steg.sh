@@ -95,3 +95,13 @@ for file in "$DIRECTORY"/*.png "$DIRECTORY"/*.jpg; do
     java -jar /usr/share/openstego/lib/openstego.jar extract -sf $file -xd $OUTPUT_FOLDER -p ""
   fi
 done
+
+# -------------------------------
+# Cleanup if nothing was found
+# -------------------------------
+if [ -z "$(ls -A "$OUTPUT_FOLDER")" ]; then
+  echo "Nothing was found so the output folder is being deleted..."
+  rm -r $OUTPUT_FOLDER
+else
+  echo "Something was found!!! Check the output folder..."
+fi

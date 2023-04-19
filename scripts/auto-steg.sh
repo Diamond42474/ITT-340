@@ -56,6 +56,20 @@ echo -e "${RED}$BANNER${NC}"
 echo -e "By: Diamond42474\n"
 echo -e "$INFO\n\n"
 
+# -----------------------------------
+# Check Installs
+# -----------------------------------
+
+echo "Checking dependencies..."
+
+# Check if Wget is installed
+if ! dpkg -s wget &> /dev/null; then
+  echo "Wget is not installed. Downloading and installing..."
+  sudo apt install wget -y
+else
+  echo "Wget is already installed."
+ fi
+
 # Check if OpenStego is installed
 if ! dpkg -s openstego &> /dev/null; then
   echo "OpenStego is not installed. Downloading and installing..."
@@ -67,6 +81,10 @@ if ! dpkg -s openstego &> /dev/null; then
 else
   echo "OpenStego is already installed."
 fi
+
+# ----------------------------------
+# Start OpenStego Operations
+# ----------------------------------
 
 mkdir $OUTPUT_FOLDER
 # Loop through files in the directory

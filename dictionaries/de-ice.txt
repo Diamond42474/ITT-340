@@ -94,6 +94,7 @@ dallas
 whatever
 admin123
 michael
+tarot
 liverpool
 querty
 william
